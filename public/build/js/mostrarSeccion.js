@@ -1,0 +1,1 @@
+function mostrarSeccion(){document.querySelector("#paso-{$paso}").classList.add("mostrar")}
