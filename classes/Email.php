@@ -26,6 +26,7 @@ class Email {
         $mail->Username = $_ENV['EMAIL_USER'];
         $mail->Password = $_ENV['EMAIL_PASS'];
        
+        //$mail->addAddress($this->email);  
         $mail->setFrom('cuentas@appsalon.com', );
         $mail->addAddress('cuentas@appsalon.com', 'Appsalon.com');
         $mail->Subject = 'Confirmar tu cuenta';
@@ -42,7 +43,6 @@ class Email {
         $contenido .= "<p>Si tu no solicitaste esta cuenta, puede ignorar este mensaje</p>";
         $contenido .= "</html>";
         $mail->Body = $contenido;
-        
         //enviar email
         $mail->send();
     }
@@ -55,13 +55,10 @@ class Email {
           $mail->Port = $_ENV['EMAIL_PORT'];
           $mail->Username = $_ENV['EMAIL_USER'];
           $mail->Password = $_ENV['EMAIL_PASS'];
-         
+
           $mail->setFrom('cuentas@appsalon.com', );
           $mail->addAddress('cuentas@appsalon.com', 'Appsalon.com');
-          //$mail->setFrom('cuentas@appsalon.com', 'Appsalon.com');
-          //$mail->addAddress($this->email);
           $mail->Subject = 'Reestablecer tu password';
-  
          //set HTML
           $mail->isHTML(TRUE);
           $mail->CharSet = 'UTF-8';
@@ -72,7 +69,6 @@ class Email {
           $contenido .= "<p>Si tu no solicitaste esta cuenta, puede ignorar este mensaje</p>";
           $contenido .= "</html>";
           $mail->Body = $contenido;
-          
           //enviar email
           $mail->send();
       }
